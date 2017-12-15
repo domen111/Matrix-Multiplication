@@ -17,6 +17,10 @@ case "$1" in
         time ./Naive < matrix.txt > Naive.out
         ;;
      
+    Thread)
+        time ./Thread $2 < matrix.txt > Thread.out
+        ;;
+     
     *)
         echo "Usage: $0 [Program] [Thread]"
         exit 1
