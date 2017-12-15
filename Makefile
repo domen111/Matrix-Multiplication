@@ -1,4 +1,4 @@
-TARGET=Naive BLOCK Open MKL BLAS
+TARGET=Naive BLOCK Open MKL BLAS Thread
 CC=gcc
 #OpenBlas
 O_LIB=-L/opt/OpenBLAS/lib
@@ -16,6 +16,7 @@ BLASROOT=../BLAS
 OBJ=${CBLASROOT}/testing/c_dblas3.o ${CBLASROOT}/testing/c_d3chke.o ${CBLASROOT}/testing/auxiliary.o  ${CBLASROOT}/testing/c_xerbla.o
 B_INCLUDE=-I ${CBLASROOT}/include/
 B_LIB=${CBLASROOT}/lib/cblas_LINUX.a ${BLASROOT}/blas_LINUX.a
+
 all: Gen $(TARGET)
 
 Gen: gen_matrix.cpp
