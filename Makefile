@@ -37,3 +37,4 @@ Thread: multi_thread.c
 clean:
 	rm $(TARGET)
 	rm gen_matrix matrix.txt
+	rm *.out
