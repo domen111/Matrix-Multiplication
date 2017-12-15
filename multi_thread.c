@@ -4,15 +4,20 @@
 #include "matrix.h"
 pthread_t tid[MAX];
 double BT[MAX*MAX];
+int thread_count;
 void *process(void *args) {
-	int i = *(int*)args;
-	for(int j = 0; j < n; j++) {
-		C[i*n+j] = 0;
-		for(int k=0; k<n; k++)
-			C[i*n+j] += A[i*n+k] * BT[j*n+k];
+	int id = *(int*)args;
+	free(args);
+	for(int i = id; i < n; i+=thread_count) {
+		for(int j = 0; j < n; j++) {
+			C[i*n+j] = 0;
+			for(int k=0; k<n; k++)
+				C[i*n+j] += A[i*n+k] * BT[j*n+k];
+		}
 	}
 }
-int main(){
+int main(int argc, char *argv[]){
+	thread_count = atoi(argv[1]);
 	load();
 
 	for(int i=0; i<n; i++) {
@@ -20,7 +25,7 @@ int main(){
 			BT[j*n+i] = B[i*n+j];
 		}
 	}
-	for(int i = 0; i < n; i++) {
+	for(int i = 0; i < thread_count; i++) {
 		int *tmp = malloc(sizeof(int));
 		*tmp = i;
 		pthread_create(&tid[i], NULL, process, (void*)tmp);
