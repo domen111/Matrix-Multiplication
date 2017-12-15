@@ -3,6 +3,7 @@ BLOCK
 Naive
 MKL
 Open
+Thread
 matrix.txt
 gen_matrix
 *.out

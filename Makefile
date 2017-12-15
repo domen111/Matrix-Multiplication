@@ -31,6 +31,8 @@ MKL: mat_intel.c
 	$(CC) -O3 mat_intel.c $(LINK) $(OPTION) $(I_INCLUDE) -o $@
 BLAS: mat_blas.c
 	$(CC) -O3 mat_blas.c $(OBJ) $(B_INCLUDE) $(B_LIB) -o $@
+Thread: multi_thread.c
+	$(CC) -O3 multi_thread.c -pthread -o $@
 clean:
 	rm $(TARGET)
 	rm gen_matrix matrix.txt
