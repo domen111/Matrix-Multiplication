@@ -1,4 +1,4 @@
-TARGET=Naive BLOCK BLOCK_O3 Open MKL BLAS
+TARGET=Naive BLOCK Open MKL BLAS
 CC=gcc
 #OpenBlas
 O_LIB=-L/opt/OpenBLAS/lib
@@ -25,8 +25,6 @@ Naive: naive.c
 	$(CC) naive.c -O3 -o $@
 BLOCK: block.c
 	$(CC) block.c -O3 -o $@
-BLOCK_O3: block.c
-	$(CC) -O3 block.c -o $@
 Open: mat_open.c
 	$(CC) -O3 mat_open.c $(O_LIB) $(O_INCLUDE) $(O_FLAGS) -o $@
 MKL: mat_intel.c
