@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "cblas.h"
+#include <cblas.h>
 #include "matrix.h"
 int main(){
 	load();

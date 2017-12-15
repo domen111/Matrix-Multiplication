@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define max 100
+#define max 8000
 double A[max][max] = {};
 double B[max][max] = {};
 double C[max][max] = {};
